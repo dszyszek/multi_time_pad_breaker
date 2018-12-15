@@ -31,41 +31,38 @@ def main(hexIn):
     print('\n---Finding pairs---\n')
 
     while not len(list_of_bins) == 128:
-        random_start = random.sample(range(0, 128), 2)
 
-        bin_a = bin(random_start[0])[2:]
-        bin_b = bin(random_start[1])[2:]
-        bin_hex = bin(int(str(hexIn), 16))[2:]
+        for x in itertools.combinations(range(0, 128), 2):
+            bin_a = bin(x[0])[2:]
+            bin_b = bin(x[1])[2:]
 
-        bin_a = sameLength(bin_a, 7)
-        bin_b = sameLength(bin_b, 7)
-        bin_hex = sameLength(bin_hex, 7)
+            bin_hex = bin(int(str(hexIn), 16))[2:]
 
-        #print(xorF(bin_a, bin_b), 'xor')
+            bin_a = sameLength(bin_a, 7)
+            bin_b = sameLength(bin_b, 7)
+            bin_hex = sameLength(bin_hex, 7)
 
-        if xorF(bin_a, bin_b) == bin_hex and not [bin_a, bin_b] in list_of_bins:
-            list_temp = [bin_a, bin_b]
-            #list_temp.sort()
-            list_of_bins.append(list_temp)
-        counter += 1
+            #print(xorF(bin_a, bin_b), 'xor')
 
-    print(f"\nFound after {counter} searches! {list_of_bins}")
+            if xorF(bin_a, bin_b) == bin_hex and not [bin_a, bin_b] in list_of_bins:
+                list_temp = [bin_a, bin_b]
+                #list_temp.sort()
+                list_of_bins.append(list_temp)
+            counter += 1
 
-    for x in list_of_bins:
-        x0 = sameLength(str(x[0]), 7)
-        x1 = sameLength(str(x[1]), 7)
+        print(f"\nFound after {counter} searches! {list_of_bins}")
 
-        if chr(int(x0, 2)) in ascii_table and chr(int(x1, 2)) in ascii_table:
-            list_of_pairs.append([chr(int(x0, 2)), chr(int(x1, 2))])           # output: ASCII
-            #list_of_pairs.append([hex(int(x0, 2))[2:], hex(int(x1, 2))[2:]])    #output: HEX
+        for x in list_of_bins:
+            x0 = sameLength(str(x[0]), 7)
+            x1 = sameLength(str(x[1]), 7)
 
-    print("\n----------------------------------\n")
-    print('Possible matches: ', list_of_pairs)
-    print('Length: ', len(list_of_pairs))
-    return list_of_pairs
+            if chr(int(x0, 2)) in ascii_table and chr(int(x1, 2)) in ascii_table:
+                list_of_pairs.append([chr(int(x0, 2)), chr(int(x1, 2))])           # output: ASCII
+                #list_of_pairs.append([hex(int(x0, 2))[2:], hex(int(x1, 2))[2:]])    #output: HEX
+
+        print("\n----------------------------------\n")
+        print('Possible matches: ', list_of_pairs)
+        print('Length: ', len(list_of_pairs))
+        return list_of_pairs
 
 main(what_value)
-
-
-
-
