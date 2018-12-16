@@ -3,7 +3,7 @@ from modules.xor import xorF
 from pyfiglet import figlet_format
 from termcolor import colored
 
-print("=================================================================")
+print("\n=================================================================")
 
 header = colored(figlet_format('MTP BREAKER'), color='magenta')
 print(header)
@@ -21,13 +21,14 @@ print("\n=================================================================\n")
 
 
 first_hash = input('Input ciphertext of first message: \n')
-second_hash = input('Input second hash: \n')
+second_hash = input('\nInput second hash: \n')
 
 hash_to_break = xorF(first_hash, second_hash)
-print(hash_to_break, 'htb')
+print(hash_to_break)
 
 def breaker(hash):
-    print('\n-----------------Computing-----------------\n')
+    print('\n---------------------------Computing---------------------------\n')
+
     sec = []
     possible_message = []
 
@@ -52,7 +53,7 @@ def breaker(hash):
 
 broken_message = breaker(hash_to_break)
 
-print("\n====================================")
-print("Broken message")
-print("====================================\n")
-print(broken_message, 'broken_message')
+print("\n=================================================================")
+print("                        Broken message                           ")
+print("=================================================================\n")
+print(broken_message, '\n')
