@@ -29,8 +29,6 @@ def find_letters(hexIn):
     list_of_bins.clear()
     counter = 0
 
-    global list_of_combinations
-
     while not len(list_of_bins) == 128:
 
         for x in itertools.combinations(range(0, 128), 2):
