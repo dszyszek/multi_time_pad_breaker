@@ -24,7 +24,7 @@ def sameLength(str, leng):
     return str
 
 
-def main(hexIn):
+def find_letters(hexIn):
     list_of_pairs.clear()
     list_of_bins.clear()
     counter = 0
@@ -62,4 +62,4 @@ def main(hexIn):
         return list_of_pairs
 
 
-# main(what_value)
+# find_letters(what_value)

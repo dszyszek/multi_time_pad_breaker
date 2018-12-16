@@ -1,4 +1,4 @@
-from modules.find_letters import main
+from modules.find_letters import find_letters
 from modules.xor import xorF
 
 hash_to_break = input('Input XOR to break (hex):\n')
@@ -15,7 +15,7 @@ def breaker(hash):
 
     while len(possible_message) < len(hash_to_break)/2:
         for i, byte in enumerate(sec):
-            pairs = main(byte)
+            pairs = find_letters(byte)
 
             if len(pairs) == 1 and not byte == '00' and int(byte, 16) <= 128:
                 sorted = [pairs[0].pop(pairs[0].index(x)) for x in pairs[0] if not x == ' ']  # pop() every ' ' in 'pairs'
