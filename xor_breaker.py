@@ -1,5 +1,5 @@
-from find_letters import main
-from xor import xorF
+from modules.find_letters import main
+from modules.xor import xorF
 
 hash_to_break = input('Input XOR to break (hex):\n')
 
