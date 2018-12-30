@@ -2,7 +2,7 @@
 
 As in title (kinda clickbait, I know), the program is used to decrypt ciphertext encrypted with One Time Pad (OTP). There are some restrictions though (as encryption with OTP, using truly random key, is perfectly secure- even brute force won't do its job): 
 - you should have at least two ciphertexts (but the more you have, the greater chance that you will find plaintext)
-- every ciphertext you input MUST be encrypted using same key
+- every ciphertext you input MUST be encrypted using same key.
 
 # How does the program work?
 
@@ -13,14 +13,19 @@ The program takes two hashes (encrypted messages; hex value) and XOR them togeth
 At first, you have to input two hashes you wanna compare, lets say H1 and H2 (in the example I assume you have at least 3 ciphertexts).
 The goal is to decrypt H1.
 Output of the program will look like: 
+
 e - x - a - 4 - p - 6 - e
-Then you use the program second time, but now with pair: H1, H3:
+
+Then you use the program second time, but now with pair: H1, H3.
+
 Output:
+
 1 - 2 - 3 - m - 5 - l - 7
+
 I suppose you know what's the next step (if not, just compare the given outputs).
 One note, breaking encryption will not always be so easy-peasy (as in example), sometimes you won't have all the letters - in this situation you have to use other tools of cryptanalysis e.g. crib-dragging.
 
-# Why I wrote that?
+# Why do I wrote that?
 
 I'm very interested in cryptography and wanted to solve that task: 
 
